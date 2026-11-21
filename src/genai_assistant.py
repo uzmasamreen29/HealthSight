@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from google import genai
 from google.genai import types
 from google.genai.errors import APIError
@@ -34,7 +35,7 @@ def load_verified_context() -> dict:
 
 
 def ask_healthsight_assistant(user_question: str, api_key: str | None = None) -> str:
-    """Query Google Gemini using verified HealthSight analytics context with error handling."""
+    """Query Google Gemini using verified HealthSight analytics context with retry and model fallback."""
     effective_key = (api_key or GEMINI_API_KEY or "").strip()
     if not effective_key or effective_key == "your_actual_google_ai_studio_api_key_here":
         return (
@@ -55,31 +56,56 @@ def ask_healthsight_assistant(user_question: str, api_key: str | None = None) ->
         "End with a short disclaimer reminding the user that operational insights are data-driven suggestions and not medical advice."
     )
 
-    try:
-        client = genai.Client(
-            api_key=effective_key,
-            http_options=types.HttpOptions(api_version="v1beta"),
-        )
-        response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_INSTRUCTION,
-                temperature=0.2,
-                max_output_tokens=4096,
-            ),
-        )
-        return response.text or "No response text returned by Gemini."
+    client = genai.Client(
+        api_key=effective_key,
+        http_options=types.HttpOptions(api_version="v1beta"),
+    )
 
-    except APIError as e:
-        if getattr(e, "code", None) == 429 or "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-            return (
-                "⚠️ **Gemini Free-Tier Quota Limit Reached (HTTP 429):** "
-                "Too many requests were sent in a short window. Please wait 30–60 seconds and try again."
-            )
-        return f"⚠️ **Gemini API Error:** {e}"
-    except Exception as e:
-        return f"⚠️ **Unexpected Assistant Error:** {e}"
+    candidate_models = [GEMINI_MODEL]
+    if "gemini-2.5-flash-lite" not in candidate_models:
+        candidate_models.append("gemini-2.5-flash-lite")
+
+    last_error = None
+
+    for model_name in candidate_models:
+        for attempt in range(2):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=SYSTEM_INSTRUCTION,
+                        temperature=0.2,
+                        max_output_tokens=4096,
+                    ),
+                )
+                return response.text or "No response text returned by Gemini."
+
+            except APIError as e:
+                last_error = e
+                code = getattr(e, "code", None)
+                err_str = str(e)
+
+                if code == 503 or "503" in err_str or "UNAVAILABLE" in err_str:
+                    time.sleep(2 * (attempt + 1))
+                    continue
+
+                if code == 429 or "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
+                    return (
+                        "⚠️ **Gemini Free-Tier Quota Limit Reached (HTTP 429):** "
+                        "Too many requests were sent in a short window. Please wait 30–60 seconds and try again."
+                    )
+
+                return f"⚠️ **Gemini API Error:** {e}"
+
+            except Exception as e:
+                return f"⚠️ **Unexpected Assistant Error:** {e}"
+
+    return (
+        "⚠️ **Gemini Models Temporarily Busy (HTTP 503):** "
+        f"Both `{candidate_models[0]}` and fallback `{candidate_models[-1]}` are experiencing temporary high demand. "
+        f"Please wait 15–30 seconds and click Generate again. ({last_error})"
+    )
 
 
 if __name__ == "__main__":

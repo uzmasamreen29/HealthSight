@@ -5,18 +5,19 @@ import sqlite3
 import pandas as pd
 import streamlit as st
 
-# Add src/ to Python path so modules import cleanly
+# Ensure both project root and src/ are on sys.path for Pylance and internal src imports
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(ROOT_DIR, "src")
-if SRC_DIR not in sys.path:
-    sys.path.insert(0, SRC_DIR)
+for path in (ROOT_DIR, SRC_DIR):
+    if path not in sys.path:
+        sys.path.insert(0, path)
 
-from config import DB_PATH, PROCESSED_DIR, MODELS_DIR, GEMINI_API_KEY
-from etl import run_etl
-from sql_analytics import execute_all_analytics, build_and_save_kpi_summary
-from ml_pipeline import run_ml_pipeline
-from export_powerbi import export_powerbi_tables
-from genai_assistant import ask_healthsight_assistant
+from src.config import DB_PATH, MODELS_DIR, GEMINI_API_KEY
+from src.etl import run_etl
+from src.sql_analytics import execute_all_analytics, build_and_save_kpi_summary
+from src.ml_pipeline import run_ml_pipeline
+from src.export_powerbi import export_powerbi_tables
+from src.genai_assistant import ask_healthsight_assistant
 
 st.set_page_config(
     page_title="HealthSight | GenAI Healthcare Analytics",
@@ -104,7 +105,7 @@ with st.sidebar:
     st.divider()
     st.subheader("🔄 Live Data Pipeline")
     if st.button("Refresh Live Datasets & Retrain ML", use_container_width=True):
-        with st.spinner("Fetching live San Francisco data, updating SQLite, retraining ML & exporting Power BI CSVs..."):
+        with st.spinner("Updating SQLite, retraining ML & exporting Power BI CSVs..."):
             run_etl(force_download=True)
             sql_res = execute_all_analytics()
             build_and_save_kpi_summary(sql_res)
