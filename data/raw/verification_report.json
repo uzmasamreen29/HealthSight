@@ -1,0 +1,25 @@
+{
+  "verified_at_utc": "2026-11-20T03:53:07.779485+00:00",
+  "sf_respiratory": {
+    "status": "success",
+    "rows": 324,
+    "columns": [
+      "week_start_date",
+      "week_end_date",
+      "epi_week",
+      "respiratory_virus",
+      "new_admissions",
+      "admission_rate_per_100k",
+      "sf_population_estimate",
+      "activity_level",
+      "trend",
+      "data_updated_at",
+      "data_as_of",
+      "data_loaded_at"
+    ]
+  },
+  "nhs_england": {
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://digital.nhs.uk/data-and-information/publications/statistical/hospital-admitted-patient-care-activity/2025-26"
+  }
+}

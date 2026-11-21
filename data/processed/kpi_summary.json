@@ -1,0 +1,305 @@
+{
+  "provenance": [
+    {
+      "dataset_key": "nhs_provider_activity",
+      "dataset_name": "NHS England Community Services Activity (July 2026)",
+      "ingestion_mode": "official_archive",
+      "clean_rows": 275990,
+      "rows_2025_plus": 275990,
+      "earliest_observation": "2026-07-01",
+      "latest_observation": "2026-07-31",
+      "retrieved_at_utc": "2026-11-21 10:05:51 UTC"
+    },
+    {
+      "dataset_key": "sf_respiratory_weekly",
+      "dataset_name": "San Francisco Respiratory Virus Hospital Admissions",
+      "ingestion_mode": "live_api",
+      "clean_rows": 327,
+      "rows_2025_plus": 291,
+      "earliest_observation": "2024-10-13",
+      "latest_observation": "2026-11-14",
+      "retrieved_at_utc": "2026-11-21 10:05:51 UTC"
+    }
+  ],
+  "sf_disease_summary_2025_plus": [
+    {
+      "respiratory_virus": "Influenza",
+      "weeks_observed": 97,
+      "total_admissions_2025_plus": 1516,
+      "pct_share_of_admissions": 44.26,
+      "mean_weekly_admissions": 15.63,
+      "max_weekly_admissions": 119,
+      "mean_rate_per_100k": 1.87,
+      "peak_rate_per_100k": 14.23,
+      "burden_rank": 1
+    },
+    {
+      "respiratory_virus": "COVID-19",
+      "weeks_observed": 97,
+      "total_admissions_2025_plus": 1366,
+      "pct_share_of_admissions": 39.88,
+      "mean_weekly_admissions": 14.08,
+      "max_weekly_admissions": 66,
+      "mean_rate_per_100k": 1.68,
+      "peak_rate_per_100k": 7.89,
+      "burden_rank": 2
+    },
+    {
+      "respiratory_virus": "RSV",
+      "weeks_observed": 97,
+      "total_admissions_2025_plus": 543,
+      "pct_share_of_admissions": 15.85,
+      "mean_weekly_admissions": 5.6,
+      "max_weekly_admissions": 35,
+      "mean_rate_per_100k": 0.67,
+      "peak_rate_per_100k": 4.18,
+      "burden_rank": 3
+    }
+  ],
+  "sf_latest_3_weeks_by_virus": [
+    {
+      "week_start_date": "2026-11-08",
+      "week_end_date": "2026-11-14",
+      "year": 2026,
+      "month": 11,
+      "epi_week": 45,
+      "respiratory_virus": "COVID-19",
+      "new_admissions": 9,
+      "prev_week_admissions": 10,
+      "wow_pct_change": -10.0,
+      "rolling_4wk_avg_admissions": 15.25,
+      "admission_rate_per_100k": 1.08,
+      "activity_level": "Very Low",
+      "trend": "Stable"
+    },
+    {
+      "week_start_date": "2026-11-08",
+      "week_end_date": "2026-11-14",
+      "year": 2026,
+      "month": 11,
+      "epi_week": 45,
+      "respiratory_virus": "Influenza",
+      "new_admissions": 41,
+      "prev_week_admissions": 29,
+      "wow_pct_change": 41.38,
+      "rolling_4wk_avg_admissions": 35.0,
+      "admission_rate_per_100k": 4.9,
+      "activity_level": "Moderate",
+      "trend": "Increasing"
+    },
+    {
+      "week_start_date": "2026-11-08",
+      "week_end_date": "2026-11-14",
+      "year": 2026,
+      "month": 11,
+      "epi_week": 45,
+      "respiratory_virus": "RSV",
+      "new_admissions": 5,
+      "prev_week_admissions": 2,
+      "wow_pct_change": 150.0,
+      "rolling_4wk_avg_admissions": 2.0,
+      "admission_rate_per_100k": 0.6,
+      "activity_level": "Low",
+      "trend": "Increasing"
+    },
+    {
+      "week_start_date": "2026-11-01",
+      "week_end_date": "2026-11-07",
+      "year": 2026,
+      "month": 11,
+      "epi_week": 44,
+      "respiratory_virus": "COVID-19",
+      "new_admissions": 10,
+      "prev_week_admissions": 22,
+      "wow_pct_change": -54.55,
+      "rolling_4wk_avg_admissions": 17.25,
+      "admission_rate_per_100k": 1.2,
+      "activity_level": "Very Low",
+      "trend": "Decreasing"
+    },
+    {
+      "week_start_date": "2026-11-01",
+      "week_end_date": "2026-11-07",
+      "year": 2026,
+      "month": 11,
+      "epi_week": 44,
+      "respiratory_virus": "Influenza",
+      "new_admissions": 29,
+      "prev_week_admissions": 34,
+      "wow_pct_change": -14.71,
+      "rolling_4wk_avg_admissions": 32.25,
+      "admission_rate_per_100k": 3.47,
+      "activity_level": "Low",
+      "trend": "Decreasing"
+    },
+    {
+      "week_start_date": "2026-11-01",
+      "week_end_date": "2026-11-07",
+      "year": 2026,
+      "month": 11,
+      "epi_week": 44,
+      "respiratory_virus": "RSV",
+      "new_admissions": 2,
+      "prev_week_admissions": 1,
+      "wow_pct_change": 100.0,
+      "rolling_4wk_avg_admissions": 1.0,
+      "admission_rate_per_100k": 0.24,
+      "activity_level": "Very Low",
+      "trend": "Stable"
+    },
+    {
+      "week_start_date": "2026-10-25",
+      "week_end_date": "2026-10-31",
+      "year": 2026,
+      "month": 10,
+      "epi_week": 43,
+      "respiratory_virus": "COVID-19",
+      "new_admissions": 22,
+      "prev_week_admissions": 20,
+      "wow_pct_change": 10.0,
+      "rolling_4wk_avg_admissions": 20.75,
+      "admission_rate_per_100k": 2.63,
+      "activity_level": "Low",
+      "trend": "Stable"
+    },
+    {
+      "week_start_date": "2026-10-25",
+      "week_end_date": "2026-10-31",
+      "year": 2026,
+      "month": 10,
+      "epi_week": 43,
+      "respiratory_virus": "Influenza",
+      "new_admissions": 34,
+      "prev_week_admissions": 36,
+      "wow_pct_change": -5.56,
+      "rolling_4wk_avg_admissions": 30.75,
+      "admission_rate_per_100k": 4.07,
+      "activity_level": "Moderate",
+      "trend": "Stable"
+    },
+    {
+      "week_start_date": "2026-10-25",
+      "week_end_date": "2026-10-31",
+      "year": 2026,
+      "month": 10,
+      "epi_week": 43,
+      "respiratory_virus": "RSV",
+      "new_admissions": 1,
+      "prev_week_admissions": 0,
+      "wow_pct_change": NaN,
+      "rolling_4wk_avg_admissions": 0.5,
+      "admission_rate_per_100k": 0.12,
+      "activity_level": "Very Low",
+      "trend": "Stable"
+    }
+  ],
+  "nhs_top_5_providers_july_2026": [
+    {
+      "org_code": "RW1",
+      "org_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST",
+      "total_activity": 205245.0,
+      "age_0_18_activity": 47125.0,
+      "age_19_64_activity": 42620.0,
+      "age_65_plus_activity": 115525.0,
+      "pct_age_65_plus": 56.29,
+      "provider_rank": 1
+    },
+    {
+      "org_code": "RYX",
+      "org_name": "CENTRAL LONDON COMMUNITY HEALTHCARE NHS TRUST",
+      "total_activity": 205215.0,
+      "age_0_18_activity": 31225.0,
+      "age_19_64_activity": 42630.0,
+      "age_65_plus_activity": 131395.0,
+      "pct_age_65_plus": 64.03,
+      "provider_rank": 2
+    },
+    {
+      "org_code": "RM3",
+      "org_name": "NORTHERN CARE ALLIANCE NHS FOUNDATION TRUST",
+      "total_activity": 179905.0,
+      "age_0_18_activity": 56725.0,
+      "age_19_64_activity": 44090.0,
+      "age_65_plus_activity": 79115.0,
+      "pct_age_65_plus": 43.98,
+      "provider_rank": 3
+    },
+    {
+      "org_code": "NQT",
+      "org_name": "HCRG CARE LTD",
+      "total_activity": 178965.0,
+      "age_0_18_activity": 77440.0,
+      "age_19_64_activity": 39870.0,
+      "age_65_plus_activity": 61695.0,
+      "pct_age_65_plus": 34.47,
+      "provider_rank": 4
+    },
+    {
+      "org_code": "RXP",
+      "org_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST",
+      "total_activity": 173775.0,
+      "age_0_18_activity": 10085.0,
+      "age_19_64_activity": 45865.0,
+      "age_65_plus_activity": 117835.0,
+      "pct_age_65_plus": 67.81,
+      "provider_rank": 5
+    }
+  ],
+  "nhs_top_5_services_july_2026": [
+    {
+      "service_code": "12",
+      "service_type": "District Nursing Service",
+      "active_providers": 103,
+      "total_contacts": 2408890.0,
+      "contacts_0_18": 9815.0,
+      "contacts_19_64": 361925.0,
+      "contacts_65_plus": 2037260.0,
+      "pct_65_plus": 84.57,
+      "pct_0_18": 0.41
+    },
+    {
+      "service_code": "16",
+      "service_type": "Health Visiting Service",
+      "active_providers": 80,
+      "total_contacts": 874875.0,
+      "contacts_0_18": 655760.0,
+      "contacts_19_64": 219005.0,
+      "contacts_65_plus": 95.0,
+      "pct_65_plus": 0.01,
+      "pct_0_18": 74.95
+    },
+    {
+      "service_code": "20",
+      "service_type": "Musculoskeletal Service",
+      "active_providers": 79,
+      "total_contacts": 363600.0,
+      "contacts_0_18": 8060.0,
+      "contacts_19_64": 238650.0,
+      "contacts_65_plus": 116910.0,
+      "pct_65_plus": 32.15,
+      "pct_0_18": 2.22
+    },
+    {
+      "service_code": "27",
+      "service_type": "Podiatry Service",
+      "active_providers": 92,
+      "total_contacts": 316715.0,
+      "contacts_0_18": 15625.0,
+      "contacts_19_64": 105900.0,
+      "contacts_65_plus": 195235.0,
+      "pct_65_plus": 61.64,
+      "pct_0_18": 4.93
+    },
+    {
+      "service_code": "26",
+      "service_type": "Physiotherapy Service",
+      "active_providers": 96,
+      "total_contacts": 263420.0,
+      "contacts_0_18": 55925.0,
+      "contacts_19_64": 97070.0,
+      "contacts_65_plus": 110430.0,
+      "pct_65_plus": 41.92,
+      "pct_0_18": 21.23
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+﻿venv/
+__pycache__/
+*.pyc
+.env
+data/raw/nhs/*.zip
+data/raw/nhs/*.csv
+data/processed/healthsight.db
+.DS_Store

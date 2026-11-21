@@ -1,0 +1,219 @@
+{
+  "forecasting": {
+    "train_weeks": 84,
+    "test_weeks": 21,
+    "test_start_week": "2026-06-21",
+    "best_model": "Persistence_Baseline",
+    "metrics": {
+      "Persistence_Baseline": {
+        "mae": 3.016,
+        "rmse": 4.411,
+        "r2": 0.829
+      },
+      "Ridge_Regression": {
+        "mae": 3.092,
+        "rmse": 4.406,
+        "r2": 0.829
+      },
+      "Random_Forest_Regressor": {
+        "mae": 3.275,
+        "rmse": 4.861,
+        "r2": 0.792
+      }
+    },
+    "next_week_forecasts": [
+      {
+        "respiratory_virus": "COVID-19",
+        "forecast_week_start": "2026-11-15",
+        "forecast_week_end": "2026-11-21",
+        "last_observed_admissions": 9,
+        "rf_next_week_forecast": 12.26,
+        "ridge_next_week_forecast": 9.25
+      },
+      {
+        "respiratory_virus": "Influenza",
+        "forecast_week_start": "2026-11-15",
+        "forecast_week_end": "2026-11-21",
+        "last_observed_admissions": 41,
+        "rf_next_week_forecast": 30.5,
+        "ridge_next_week_forecast": 34.7
+      },
+      {
+        "respiratory_virus": "RSV",
+        "forecast_week_start": "2026-11-15",
+        "forecast_week_end": "2026-11-21",
+        "last_observed_admissions": 5,
+        "rf_next_week_forecast": 5.17,
+        "ridge_next_week_forecast": 7.09
+      }
+    ]
+  },
+  "trend_classification": {
+    "classes": [
+      "Decreasing",
+      "Increasing",
+      "Stable"
+    ],
+    "test_samples": 63,
+    "metrics": {
+      "Random_Forest_Classifier": {
+        "accuracy": 0.587,
+        "precision_weighted": 0.566,
+        "recall_weighted": 0.587,
+        "f1_weighted": 0.543
+      },
+      "Logistic_Regression": {
+        "accuracy": 0.587,
+        "precision_weighted": 0.545,
+        "recall_weighted": 0.587,
+        "f1_weighted": 0.528
+      }
+    }
+  },
+  "anomaly_detection": {
+    "COVID-19": {
+      "total_weeks": 105,
+      "anomalies_detected": 7,
+      "flagged_weeks": [
+        {
+          "week_start_date": "2024-12-29",
+          "new_admissions": 30,
+          "wow_change": 16.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-02-23",
+          "new_admissions": 7,
+          "wow_change": -13.0,
+          "anomaly_direction": "Sharp Drop"
+        },
+        {
+          "week_start_date": "2025-07-06",
+          "new_admissions": 36,
+          "wow_change": 17.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-08-17",
+          "new_admissions": 66,
+          "wow_change": 37.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-08-24",
+          "new_admissions": 50,
+          "wow_change": -16.0,
+          "anomaly_direction": "Sharp Drop"
+        },
+        {
+          "week_start_date": "2025-08-31",
+          "new_admissions": 53,
+          "wow_change": 3.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-09-07",
+          "new_admissions": 44,
+          "wow_change": -9.0,
+          "anomaly_direction": "Sharp Drop"
+        }
+      ]
+    },
+    "Influenza": {
+      "total_weeks": 105,
+      "anomalies_detected": 7,
+      "flagged_weeks": [
+        {
+          "week_start_date": "2024-12-22",
+          "new_admissions": 57,
+          "wow_change": 33.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-01-12",
+          "new_admissions": 106,
+          "wow_change": 34.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-01-19",
+          "new_admissions": 117,
+          "wow_change": 11.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-01-26",
+          "new_admissions": 119,
+          "wow_change": 2.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-02-02",
+          "new_admissions": 98,
+          "wow_change": -21.0,
+          "anomaly_direction": "Sharp Drop"
+        },
+        {
+          "week_start_date": "2025-02-16",
+          "new_admissions": 64,
+          "wow_change": -24.0,
+          "anomaly_direction": "Sharp Drop"
+        },
+        {
+          "week_start_date": "2025-02-23",
+          "new_admissions": 34,
+          "wow_change": -30.0,
+          "anomaly_direction": "Sharp Drop"
+        }
+      ]
+    },
+    "RSV": {
+      "total_weeks": 105,
+      "anomalies_detected": 7,
+      "flagged_weeks": [
+        {
+          "week_start_date": "2024-12-08",
+          "new_admissions": 17,
+          "wow_change": 8.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2024-12-29",
+          "new_admissions": 36,
+          "wow_change": 5.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-01-12",
+          "new_admissions": 24,
+          "wow_change": -11.0,
+          "anomaly_direction": "Sharp Drop"
+        },
+        {
+          "week_start_date": "2025-01-19",
+          "new_admissions": 34,
+          "wow_change": 10.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2025-02-16",
+          "new_admissions": 11,
+          "wow_change": -21.0,
+          "anomaly_direction": "Sharp Drop"
+        },
+        {
+          "week_start_date": "2025-12-14",
+          "new_admissions": 20,
+          "wow_change": 11.0,
+          "anomaly_direction": "Surge Spike"
+        },
+        {
+          "week_start_date": "2026-01-18",
+          "new_admissions": 12,
+          "wow_change": -14.0,
+          "anomaly_direction": "Sharp Drop"
+        }
+      ]
+    }
+  }
+}

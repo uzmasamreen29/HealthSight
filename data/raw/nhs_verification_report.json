@@ -1,0 +1,7 @@
+{
+  "verified_at_utc": "2026-11-20T03:58:25.877290+00:00",
+  "nhs_england": {
+    "status": "blocked_403",
+    "error": "403 Client Error: Forbidden for url: https://digital.nhs.uk/data-and-information/publications/statistical/hospital-admitted-patient-care-activity/2025-26"
+  }
+}
